@@ -1,0 +1,19 @@
+/* App.css */
+.pokemon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+  }
+  
+  .pokemon-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .pokemon-item {
+    margin: 10px;
+    text-align: center;
+  }
+  
