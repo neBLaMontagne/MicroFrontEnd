@@ -3,7 +3,7 @@ import axios from 'axios';
 import Header from '../../sharedComponent/src/components/headers/header';
 import Footer from '../../sharedComponent/src/components/footers/footer';
 import LandingPage from '../../sharedComponent/src/components/landingpages/LandingPage';
-import './App.css'; // Importez le fichier de styles CSS
+import './App.css'; 
 
 const RemoteButton = React.lazy(() => import('remote/Button'));
 

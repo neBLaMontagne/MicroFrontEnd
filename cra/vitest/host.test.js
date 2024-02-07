@@ -1,25 +1,29 @@
-import { describe, it, expect, test } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import LandingPage from '../sharedComponent/src/components/landingpages/LandingPage';
-import "@testing-library/jest-dom/extend-expect";
+import { test, expect } from 'vitest';
+
+import React from 'react';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import App from './App';
+
 
 test('adds 1 + 2 to equal 3', () => {
   expect(1 + 2).toBe(3);
 });
 
-describe('adds 1 + 2 to equal 3', () => {
-  it('calcul', () => {
-    expect(1 + 2).toBe(3);
+jest.mock('axios', () => ({
+  get: jest.fn(() => Promise.resolve({ data: { id: 1, name: 'Pikachu', sprites: { front_default: 'pikachu.jpg' } } })),
+}));
+
+describe('Host', () => {
+  it('renders loading state and fetches Pokemon data', async () => {
+    render(<App />);
+
+    expect(screen.getByText('Loading Pokemon data...')).toBeInTheDocument();
+
+    await waitFor(() => {
+      expect(screen.getByText('Pokemon Name: Pikachu')).toBeInTheDocument();
+      expect(screen.getByAltText('Pikachu')).toBeInTheDocument();
+    });
   });
+
 });
-
-// describe('Title of the landing page', () => {
-//   it('renders the passed title', () => {
-//     const testTitle = "Host landing Page";
-//     render(<LandingPage title="Host landing Page" />);
-//     const titleElement = screen.getByText(testTitle);
-//     expect(screen.getByText(testTitle)).toBeInTheDocument();
-// });
-// });
-
-

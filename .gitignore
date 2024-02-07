@@ -13,6 +13,7 @@ remix/app1/public
 remix/app1/build
 remix/app2/public
 remix/app2/build
+remix-rspack/app2/public
 remix-rspack/app2/build
 remix-rspack/app1/public
 remix-rspack/app1/build
